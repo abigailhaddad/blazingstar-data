@@ -95,10 +95,22 @@ the access path; for apportionment/SF-133 figures you can also cite the
 recomputed SHA-256 to assert byte-equivalence with OMB. See the closing "How to
 cite" cell.
 
+## Example chart
+
+`make_weekly_chart.py` renders the week's largest OMB re-apportionments to
+`weekly_reapportionments.png` (regenerate any time — the data updates nightly):
+
+![Largest weekly OMB re-apportionments](weekly_reapportionments.png)
+
+```bash
+python make_weekly_chart.py
+```
+
 ## Files
 
 - `demo.ipynb` — the notebook described above.
-- `requirements.txt` — `requests`, `pandas`, `openpyxl` (for the SF-133 Excel).
+- `make_weekly_chart.py` — renders the weekly re-apportionment chart (needs `matplotlib`).
+- `requirements.txt` — `requests`, `pandas`, `openpyxl`, `matplotlib`.
 
 ## License
 

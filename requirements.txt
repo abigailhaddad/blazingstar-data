@@ -1,3 +1,4 @@
 requests
 pandas
 openpyxl
+matplotlib   # only needed for make_weekly_chart.py
