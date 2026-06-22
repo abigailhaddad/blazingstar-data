@@ -21,6 +21,7 @@ against OMB.
 
 ```bash
 pip install -r requirements.txt
+pip install notebook            # if you don't already have Jupyter
 jupyter notebook demo.ipynb
 ```
 
@@ -29,7 +30,9 @@ Or open it in Colab (no install needed):
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/abigailhaddad/blazingstar-data/blob/main/demo.ipynb)
 
 > The Colab badge points at `abigailhaddad/blazingstar-data` on GitHub `main`.
-> It works once this repo is pushed there; adjust the URL if you fork or rename.
+> **This repo is currently private, and Colab can't open private repos** — the
+> badge will 404 until the repo is made public. Until then, run `demo.ipynb`
+> locally or upload it to Colab manually. Adjust the URL if you fork or rename.
 
 ## The datasets
 
