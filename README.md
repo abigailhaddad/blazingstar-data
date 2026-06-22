@@ -132,12 +132,15 @@ or to whom. `whitehouse_contracts.ipynb` crosses to the contract record (FPDS)
 via [makegov](https://www.makegov.com/)'s Tango API and checks the linkage in
 [USAspending](https://www.usaspending.gov/).
 
-What it finds: GSA awards White House-complex renovation work (e.g. a $635K
-bathroom renovation at 712 Jackson Place), funded by EOP — so the money is
-visible. But the award's account-level linkage in USAspending is empty and FPDS
-carries no Treasury account, so you can't rigorously tie those contracts back to
-the specific `011-0109` account. The budget side and the contract side are both
-public; the join between them isn't.
+What it finds: GSA awards White House-complex renovation work, funded by EOP —
+e.g. a $635K bathroom renovation at 712 Jackson Place, a $418K feasibility study,
+a $22K West Wing chandelier install. But those visible contracts total only
+**~$2M**, against ~$54M the account had obligated by May and $323M apportioned —
+so most of the money doesn't show up as trackable contracts at all. And the
+award's account-level linkage in USAspending is empty (FPDS carries no Treasury
+account), so even these can't be rigorously tied back to the `011-0109` account.
+The budget side and the contract side are both public; the join between them
+isn't.
 
 > **makegov/Tango is a commercial API** — it needs an account, a `TANGO_API_KEY`,
 > and `pip install tango-python` — unlike the free, CC0 BlazingStar data the rest
