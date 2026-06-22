@@ -142,6 +142,8 @@ account), so even these can't be rigorously tied back to the `011-0109` account.
 The budget side and the contract side are both public; the join between them
 isn't.
 
+![White House account funnel: $323M apportioned, ~$2M visible as contracts](whitehouse_contracts_funnel.png)
+
 > **makegov/Tango is a commercial API** — it needs an account, a `TANGO_API_KEY`,
 > and `pip install tango-python` — unlike the free, CC0 BlazingStar data the rest
 > of this repo is built around. This notebook is left out of CI for that reason.
