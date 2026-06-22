@@ -1,6 +1,6 @@
 name: smoke
 
-# Executes demo.ipynb against the live BlazingStar endpoints so we find out
+# Executes the notebooks against the live BlazingStar endpoints so we find out
 # when an endpoint moves or changes shape, instead of a reader finding out.
 on:
   workflow_dispatch:
@@ -9,12 +9,12 @@ on:
   push:
     branches: [main]
     paths:
-      - demo.ipynb
+      - "*.ipynb"
       - requirements.txt
       - .github/workflows/smoke.yml
 
 jobs:
-  run-notebook:
+  run-notebooks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,8 +23,12 @@ jobs:
           python-version: "3.12"
       - name: Install deps
         run: pip install -r requirements.txt nbconvert ipykernel
-      - name: Execute notebook
+      - name: Execute notebooks
         run: |
-          jupyter nbconvert --to notebook --execute \
-            --ExecutePreprocessor.timeout=300 \
-            --output /tmp/executed.ipynb demo.ipynb
+          for nb in demo.ipynb white_house_account.ipynb; do
+            echo "::group::$nb"
+            jupyter nbconvert --to notebook --execute \
+              --ExecutePreprocessor.timeout=300 \
+              --output /tmp/executed.ipynb "$nb"
+            echo "::endgroup::"
+          done

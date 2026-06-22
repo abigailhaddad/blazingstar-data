@@ -60,7 +60,7 @@ legal spending limit on a TAFS, the SF-133 reports execution against it, and
 awards in USAspending draw down from it. That's the appropriation → apportionment
 → execution → award chain on a single identifier.
 
-## What the notebook does
+## What `demo.ipynb` does
 
 - **Access tour** — fetches every dataset into a pandas DataFrame, with each
   record's federal `source_url` carried alongside. Fiscal years are set in a
@@ -81,9 +81,9 @@ awards in USAspending draw down from it. That's the appropriation → apportionm
   apportionment file and an SF-133 spreadsheet to confirm byte-equivalence with
   OMB.
 
-A weekly GitHub Action (`.github/workflows/smoke.yml`) executes the whole
-notebook against the live endpoints, so a moved or reshaped endpoint surfaces as
-a failed run rather than as a surprise for the next reader.
+A weekly GitHub Action (`.github/workflows/smoke.yml`) executes both notebooks
+against the live endpoints, so a moved or reshaped endpoint surfaces as a failed
+run rather than as a surprise for the next reader.
 
 ### A note on sourcing
 
@@ -95,7 +95,7 @@ the access path; for apportionment/SF-133 figures you can also cite the
 recomputed SHA-256 to assert byte-equivalence with OMB. See the closing "How to
 cite" cell.
 
-## Example chart
+## Weekly re-apportionment chart
 
 `make_weekly_chart.py` renders the week's largest OMB re-apportionments to
 `weekly_reapportionments.png` (regenerate any time — the data updates nightly):
@@ -106,22 +106,24 @@ cite" cell.
 python make_weekly_chart.py
 ```
 
-### Account deep-dive
+## Account deep-dive: White House Repair and Restoration
 
-`make_account_story.py` traces one Treasury account over time. The included
-example follows the White House "Repair and Restoration" account (EOP
-`011-X-0109`): apportioned budget authority grew from ~$6M (FY2022) to $323M
-(FY2026) while the direct appropriation never moved off ~$2.5M — the growth is
-entirely reimbursable/collected funds.
+`white_house_account.ipynb` is a self-contained walk-through of one Treasury
+account over time (EOP `011-X-0109`). Apportioned budget authority grew from
+~$6M (FY2022) to $323M (FY2026) while the direct appropriation never moved off
+~$2.5M — the growth is entirely reimbursable/collected funds. Runs top to
+bottom; the chart's footnote carries the full methodology and caveats.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/abigailhaddad/blazingstar-data/blob/main/white_house_account.ipynb)
 
 ![White House Repair and Restoration account over time](white_house_account.png)
 
 ## Files
 
-- `demo.ipynb` — the notebook described above.
-- `make_weekly_chart.py` — renders the weekly re-apportionment chart (needs `matplotlib`).
-- `make_account_story.py` — charts one account's funding history over time (needs `matplotlib`).
-- `requirements.txt` — `requests`, `pandas`, `openpyxl`, `matplotlib`.
+- `demo.ipynb` — the access-tour notebook described above.
+- `white_house_account.ipynb` — the account deep-dive (generates `white_house_account.png`).
+- `make_weekly_chart.py` — renders the weekly re-apportionment chart (`weekly_reapportionments.png`).
+- `requirements.txt` — `requests`, `pandas`, `openpyxl`, `matplotlib`, `jinja2`.
 
 ## License
 

@@ -1,4 +1,5 @@
 requests
 pandas
-openpyxl
-matplotlib   # only needed for make_weekly_chart.py
+openpyxl      # reading the SF-133 Excel files
+matplotlib    # charts (make_weekly_chart.py, white_house_account.ipynb)
+jinja2        # pandas .style tables in the notebooks
