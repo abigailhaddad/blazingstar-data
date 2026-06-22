@@ -124,10 +124,30 @@ The apportionment and execution sides agree:
 
 ![Apportionment vs execution — two paths, same story](white_house_two_ways.png)
 
+## Following the money to contracts (makegov / FPDS)
+
+OMB's apportionment and execution data stops at the *account* — it shows the
+"Repair and Restoration" account swelling to $323M, but not what got contracted
+or to whom. `whitehouse_contracts.ipynb` crosses to the contract record (FPDS)
+via [makegov](https://www.makegov.com/)'s Tango API and checks the linkage in
+[USAspending](https://www.usaspending.gov/).
+
+What it finds: GSA awards White House-complex renovation work (e.g. a $635K
+bathroom renovation at 712 Jackson Place), funded by EOP — so the money is
+visible. But the award's account-level linkage in USAspending is empty and FPDS
+carries no Treasury account, so you can't rigorously tie those contracts back to
+the specific `011-0109` account. The budget side and the contract side are both
+public; the join between them isn't.
+
+> **makegov/Tango is a commercial API** — it needs an account, a `TANGO_API_KEY`,
+> and `pip install tango-python` — unlike the free, CC0 BlazingStar data the rest
+> of this repo is built around. This notebook is left out of CI for that reason.
+
 ## Files
 
 - `demo.ipynb` — the access-tour notebook described above.
 - `white_house_account.ipynb` — the account deep-dive (generates `white_house_account.png`).
+- `whitehouse_contracts.ipynb` — the contract cross-check via makegov/FPDS (needs `TANGO_API_KEY`; not in CI).
 - `make_weekly_chart.py` — renders the weekly re-apportionment chart (`weekly_reapportionments.png`).
 - `requirements.txt` — `requests`, `pandas`, `openpyxl`, `matplotlib`, `jinja2`.
 
