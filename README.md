@@ -56,10 +56,33 @@ legal spending limit on a TAFS, the SF-133 reports execution against it, and
 awards in USAspending draw down from it. That's the appropriation → apportionment
 → execution → award chain on a single identifier.
 
+## What the notebook does
+
+- **Access tour** — fetches every dataset into a pandas DataFrame, with each
+  record's federal `source_url` carried alongside.
+- **"What changed this week"** — apportionments update nightly and each account
+  (TAFS) can be re-apportioned, so the notebook compares each account's latest
+  `iteration` against the prior one and surfaces the dollar moves in the most
+  recent 7 days (e.g. a $17.6B bump to DOE's Title 17 loan account), plus an
+  agency-level rollup. The window is anchored to the latest approval in the
+  file, so it stays meaningful whenever you run it.
+- **Byte-level verification** — recomputes the published SHA-256 for an
+  apportionment file and an SF-133 spreadsheet to confirm byte-equivalence with
+  OMB.
+
+### A note on sourcing
+
+The data is CC0, so attribution isn't legally required — but every record
+exposes a `source_url` to its authoritative federal origin (OMB MAX.gov,
+GovInfo, the Federal Register), and the notebook surfaces it in every table.
+When citing, lead with that primary source and note the BlazingStar mirror as
+the access path; for apportionment/SF-133 figures you can also cite the
+recomputed SHA-256 to assert byte-equivalence with OMB. See the closing "How to
+cite" cell.
+
 ## Files
 
-- `demo.ipynb` — the access tour: fetches every dataset into a DataFrame, shows
-  SHA-256 verification, and links each record back to its federal source.
+- `demo.ipynb` — the notebook described above.
 - `requirements.txt` — `requests`, `pandas`, `openpyxl` (for the SF-133 Excel).
 
 ## License
