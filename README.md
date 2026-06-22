@@ -112,11 +112,17 @@ python make_weekly_chart.py
 account over time (EOP `011-X-0109`). Apportioned budget authority grew from
 ~$6M (FY2022) to $323M (FY2026) while the direct appropriation never moved off
 ~$2.5M — the growth is entirely reimbursable/collected funds. Runs top to
-bottom; the chart's footnote carries the full methodology and caveats.
+bottom and generates all three charts below.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/abigailhaddad/blazingstar-data/blob/main/white_house_account.ipynb)
 
 ![White House Repair and Restoration account over time](white_house_account.png)
+
+The notebook also confirms the story a second, independent way — rebuilding the
+same series from the SF-133 *execution* filings (the budgetary-resources lines).
+The apportionment and execution sides agree:
+
+![Apportionment vs execution — two paths, same story](white_house_two_ways.png)
 
 ## Files
 
