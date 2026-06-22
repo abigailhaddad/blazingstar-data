@@ -1,0 +1,30 @@
+name: smoke
+
+# Executes demo.ipynb against the live BlazingStar endpoints so we find out
+# when an endpoint moves or changes shape, instead of a reader finding out.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 13 * * 1"   # Mondays 13:00 UTC
+  push:
+    branches: [main]
+    paths:
+      - demo.ipynb
+      - requirements.txt
+      - .github/workflows/smoke.yml
+
+jobs:
+  run-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install -r requirements.txt nbconvert ipykernel
+      - name: Execute notebook
+        run: |
+          jupyter nbconvert --to notebook --execute \
+            --ExecutePreprocessor.timeout=300 \
+            --output /tmp/executed.ipynb demo.ipynb

@@ -60,16 +60,27 @@ awards in USAspending draw down from it. That's the appropriation → apportionm
 ## What the notebook does
 
 - **Access tour** — fetches every dataset into a pandas DataFrame, with each
-  record's federal `source_url` carried alongside.
+  record's federal `source_url` carried alongside. Fiscal years are set in a
+  config cell up top (`APPT_FY`, `APPENDIX_FY`, `HISTORY_FYS`), and Section 1
+  rolls total apportioned authority across FY2022–FY2026.
 - **"What changed this week"** — apportionments update nightly and each account
   (TAFS) can be re-apportioned, so the notebook compares each account's latest
   `iteration` against the prior one and surfaces the dollar moves in the most
   recent 7 days (e.g. a $17.6B bump to DOE's Title 17 loan account), plus an
   agency-level rollup. The window is anchored to the latest approval in the
   file, so it stays meaningful whenever you run it.
+- **Execution rates** — from a single SF-133 file, how much of each account's
+  budgetary resources is already obligated (spending pace) and how much OMB has
+  apportioned but the agency hasn't yet committed. Uses the standard SF-133
+  lines (resources `1910`, obligations `2190`, apportioned-unobligated
+  `2201`+`2203`) read at the latest reporting period.
 - **Byte-level verification** — recomputes the published SHA-256 for an
   apportionment file and an SF-133 spreadsheet to confirm byte-equivalence with
   OMB.
+
+A weekly GitHub Action (`.github/workflows/smoke.yml`) executes the whole
+notebook against the live endpoints, so a moved or reshaped endpoint surfaces as
+a failed run rather than as a surprise for the next reader.
 
 ### A note on sourcing
 
