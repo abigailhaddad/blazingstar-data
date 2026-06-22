@@ -106,10 +106,21 @@ cite" cell.
 python make_weekly_chart.py
 ```
 
+### Account deep-dive
+
+`make_account_story.py` traces one Treasury account over time. The included
+example follows the White House "Repair and Restoration" account (EOP
+`011-X-0109`): apportioned budget authority grew from ~$6M (FY2022) to $323M
+(FY2026) while the direct appropriation never moved off ~$2.5M — the growth is
+entirely reimbursable/collected funds.
+
+![White House Repair and Restoration account over time](white_house_account.png)
+
 ## Files
 
 - `demo.ipynb` — the notebook described above.
 - `make_weekly_chart.py` — renders the weekly re-apportionment chart (needs `matplotlib`).
+- `make_account_story.py` — charts one account's funding history over time (needs `matplotlib`).
 - `requirements.txt` — `requests`, `pandas`, `openpyxl`, `matplotlib`.
 
 ## License
