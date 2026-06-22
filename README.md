@@ -7,10 +7,11 @@ that [BlazingStar Analytics](https://www.blazingstaranalytics.com/) mirrors at
 Everything served there is a mirror of primary federal sources (OMB MAX.gov,
 GovInfo/GPO, the Federal Register, Regulations.gov), released under
 [**CC0 1.0**](https://creativecommons.org/publicdomain/zero/1.0/) (public
-domain). There is **no API key, no login, and no rate limit** — each dataset is
-a single `index.json` you can fetch with `requests` and load straight into
-pandas. Every record carries its `source_url` and a pull timestamp; the
-execution files also carry a published SHA-256 so you can byte-verify them
+domain). There is **no API key and no login** — each dataset is a single
+`index.json` you can fetch with `requests` and load straight into pandas. (One
+gotcha: the CDN returns 403 to requests that send no `User-Agent`, so set one —
+the notebook does.) Every record carries its `source_url` and a pull timestamp;
+the execution files also carry a published SHA-256 so you can byte-verify them
 against OMB.
 
 > This repo is not affiliated with or endorsed by BlazingStar Analytics. It just
@@ -87,6 +88,7 @@ cite" cell.
 
 ## License
 
-The code in this repo is released under CC0 / public domain, matching the data
-it demonstrates. The data itself is CC0 from BlazingStar Analytics' mirror of
-federal sources.
+The code in this repo is released into the public domain under
+[CC0 1.0](LICENSE), matching the data it demonstrates. The data itself is CC0
+from BlazingStar Analytics' mirror of federal sources; the underlying records
+are U.S. Government works.
