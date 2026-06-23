@@ -135,8 +135,9 @@ via [makegov](https://www.makegov.com/)'s Tango API and checks the linkage in
 What it finds: GSA awards White House-complex renovation work, funded by EOP —
 e.g. a $635K bathroom renovation at 712 Jackson Place, a $418K feasibility study,
 a $22K West Wing chandelier install. But those visible contracts total only
-**~$2M**, against ~$54M the account had obligated by May and $323M apportioned —
-so most of the money doesn't show up as trackable contracts at all. And the
+**~$2M**, against the ~$82M the account *actually spent* (outlays) by May and
+$384M in budgetary resources — so most of the money doesn't show up as trackable
+contracts at all. And the
 award's account-level linkage in USAspending is empty (FPDS carries no Treasury
 account), so even these can't be rigorously tied back to the `011-0109` account.
 The budget side and the contract side are both public; the join between them
