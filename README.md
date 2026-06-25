@@ -17,6 +17,16 @@ against OMB.
 > This repo is not affiliated with or endorsed by BlazingStar Analytics. It just
 > documents the public endpoints and shows them being used.
 
+## About BlazingStar
+
+BlazingStar Analytics is Joe Carlile's project (he's a budget analyst and former
+OMB / House Appropriations staffer). It has two parts: a **free, CC0 public
+mirror** of federal budget documents at
+[data.blazingstaranalytics.com](https://data.blazingstaranalytics.com/), and a
+separate **commercial platform** (in early access) that connects the same data —
+appropriation → apportionment → execution → award — into one searchable record.
+**This repo only uses the free mirror.**
+
 ## Quick start
 
 ```bash
@@ -30,9 +40,7 @@ Or open it in Colab (no install needed):
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/abigailhaddad/blazingstar-data/blob/main/demo.ipynb)
 
 > The Colab badge points at `abigailhaddad/blazingstar-data` on GitHub `main`.
-> **This repo is currently private, and Colab can't open private repos** — the
-> badge will 404 until the repo is made public. Until then, run `demo.ipynb`
-> locally or upload it to Colab manually. Adjust the URL if you fork or rename.
+> Adjust the URL if you fork or rename.
 
 ## The datasets
 
